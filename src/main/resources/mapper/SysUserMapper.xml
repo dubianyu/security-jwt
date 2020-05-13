@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.komlin.mapper.SysUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.komlin.entity.SysUser">
+        <id column="id" property="id" />
+        <result column="real_name" property="realName" />
+        <result column="mobile" property="mobile" />
+        <result column="password" property="password" />
+        <result column="remark" property="remark" />
+        <result column="is_super" property="isSuper" />
+        <result column="status" property="status" />
+        <result column="card_id" property="cardId" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <select id="findUserByMobile" resultType="com.komlin.pojo.auth.UserDetail">
+        SELECT id,mobile,password,is_super FROM sys_user WHERE mobile = #{mobile}
+    </select>
+
+</mapper>
